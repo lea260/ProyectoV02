@@ -32,6 +32,7 @@
             this.cmbsintomas = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnelim = new System.Windows.Forms.Button();
+            this.grsintomas = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // button1
@@ -72,11 +73,21 @@
             this.btnelim.UseVisualStyleBackColor = true;
             this.btnelim.Click += new System.EventHandler(this.btnelim_Click);
             // 
+            // grsintomas
+            // 
+            this.grsintomas.Location = new System.Drawing.Point(50, 72);
+            this.grsintomas.Name = "grsintomas";
+            this.grsintomas.Size = new System.Drawing.Size(1045, 384);
+            this.grsintomas.TabIndex = 4;
+            this.grsintomas.TabStop = false;
+            this.grsintomas.Text = "sintomas";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 652);
+            this.Controls.Add(this.grsintomas);
             this.Controls.Add(this.btnelim);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbsintomas);
@@ -94,5 +105,6 @@
         private System.Windows.Forms.ComboBox cmbsintomas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnelim;
+        private System.Windows.Forms.GroupBox grsintomas;
     }
 }

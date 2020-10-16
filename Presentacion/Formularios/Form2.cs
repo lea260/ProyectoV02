@@ -57,55 +57,7 @@ namespace Presentacion.Formularios
         //eliminar por nombre
         private void EliminarSintomas()
         {
-            foreach (Control c in this.Controls.OfType<TextBox>())
-            {
-                try
-                {
-                    this.Controls.Remove(c);
-                    /*if (c.Tag!= null)
-                    {
-                        int tag = (int)c.Tag;
-                        if (tag == 1 || tag == 0)
-                        {
-                            this.Controls.Remove(c);
-                            c.Dispose();
-                            //break;
-                        }
-                    }*/
-
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }   
-            }
-
-            foreach (Control c in this.Controls.OfType<Label>())
-            {
-                try
-                {
-                    this.Controls.Remove(c);
-                    /*if (c.Tag != null)
-                    {
-                        int tag = (int)c.Tag;
-                        if (tag == 1 || tag == 0)
-                        {
-                            this.Controls.Remove(c);
-                            c.Dispose();
-                            //break;
-                        }
-                    }*/
-
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
-            }
-
-
+            this.grsintomas.Controls.Clear();
         }
     /*private void EliminarSintomas()
         {
@@ -162,9 +114,9 @@ namespace Presentacion.Formularios
                 txt1.TextChanged += new EventHandler((sender1, e1) => Txt_TextChanged(sender1, e1, txt1.Text, item.Id));
                 
                 //txt.TextChanged += Txt_TextChanged;
-                this.Controls.Add(lbl1);
-                this.Controls.Add(lbl2);
-                this.Controls.Add(txt1);
+                this.grsintomas.Controls.Add(lbl1);
+                this.grsintomas.Controls.Add(lbl2);
+                this.grsintomas.Controls.Add(txt1);
                 //cuadro de ponderacion
                 //aumentar la y
                 this.y += altura;
