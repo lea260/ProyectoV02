@@ -21,7 +21,7 @@ namespace Presentacion.Formularios
         }
         private int v = 0;
         private int y = 70;      
-        const int altura = 50;
+        const int altura = 20;
         //lista sintomas de la enfermedad
         List<DataSintoma> list;
         //lista de todos los sintomas.
@@ -87,6 +87,7 @@ namespace Presentacion.Formularios
 
         private void ListarSintomas()
         {
+            this.y = 70;
             foreach (var item in this.list)
             {
 
@@ -150,12 +151,26 @@ namespace Presentacion.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //int indice = cmbsintomas.SelectedIndex;
+            int indice = cmbsintomas.SelectedIndex;
             if (this.indice != -1)
             {
-                long id = this.list[this.indice].Id;
-                string sintoma = this.list[this.indice].Sintoma;
+                /*while (!encontrado || this.listasintomas.Count<iter)
+                {
+                    if (this.listasintomas[iter].Id == this.indice)
+                    {
+                        encontrado = true;
+                        posicion = iter;
+                    }
+                    iter++;
+                }*/
+                long id = this.listasintomas[indice].Id;
+                DataSintoma sintomaData = this.listasintomas[indice];
+                string sintoma = this.listasintomas[indice].Sintoma;
                 MessageBox.Show("id:" + id + " el sintoma es: " + sintoma);
+                this.list.Add(sintomaData);
+                EliminarSintomas();
+                ListarSintomas();
+                
             }
 
 
@@ -164,9 +179,7 @@ namespace Presentacion.Formularios
 
         private void cmbsintomas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.indice = cmbsintomas.SelectedIndex;
-            
-
+            this.indice = cmbsintomas.SelectedIndex;          
         }
 
 
@@ -182,6 +195,7 @@ namespace Presentacion.Formularios
 
         private void btnelim_Click(object sender, EventArgs e)
         {
+            this.list.Clear();
             EliminarSintomas();
         }
     }
