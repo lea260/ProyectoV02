@@ -26,7 +26,7 @@ namespace Presentacion.Formularios
         List<DataSintoma> list;
         //lista de todos los sintomas.
         List<DataSintoma> listasintomas;
-        private int indice = -1;
+        private int indice = -1;        
         public Form2()
         {
             InitializeComponent();
@@ -49,6 +49,7 @@ namespace Presentacion.Formularios
             cmbsintomas.DataSource = this.listasintomas;
             cmbsintomas.ValueMember = "id";
             cmbsintomas.DisplayMember = "sintoma";
+            //listo los sintomas;
             //listo los sintomas;
             ListarSintomas();
 
@@ -113,11 +114,20 @@ namespace Presentacion.Formularios
                 txt1.Name = item.Coef.ToString();
                 txt1.Tag = this.v;
                 txt1.TextChanged += new EventHandler((sender1, e1) => Txt_TextChanged(sender1, e1, txt1.Text, item.Id));
-                
+
+                Button btn = new Button();
+                btn.Location = new Point(460, y);
+                btn.Text = "Eliminar"+item.Id.ToString();
+                btn.Name = "Eliminar" + item.Id.ToString();
+                btn.Tag = this.v;
+                btn.Click += new EventHandler((sender1, e1) => btn_Click(sender1, e1, txt1.Text, item.Id));
+                //btn.Click += new EventHandler((sender1, e1) => Txt_TextChanged(sender1, e1, txt1.Text, item.Id));
+
                 //txt.TextChanged += Txt_TextChanged;
                 this.grsintomas.Controls.Add(lbl1);
                 this.grsintomas.Controls.Add(lbl2);
                 this.grsintomas.Controls.Add(txt1);
+                this.grsintomas.Controls.Add(btn);
                 //cuadro de ponderacion
                 //aumentar la y
                 this.y += altura;
@@ -125,9 +135,26 @@ namespace Presentacion.Formularios
             }
         }
 
-        
-
-
+        private void btn_Click(object sender1, EventArgs e1, string text, long id)
+        {
+            bool encontrado = false;
+            int cantidad = this.list.Count;
+            int iter = 0;
+            int posicion = iter;
+            while (!encontrado)
+            {
+                if (this.list[iter].Id == id)
+                {
+                    encontrado = true;                    
+                    posicion = iter;
+                }
+                iter++;
+            }
+            this.list.RemoveAt(posicion);
+            //borrar items
+            EliminarSintomas();
+            ListarSintomas();
+        }
 
         private void Txt_TextChanged(object sender, EventArgs e, string coef, long id)
         {
