@@ -32,6 +32,7 @@ namespace Presentacion.Formularios
             InitializeComponent();
             Initcombox();
         }
+        
 
         private void Initcombox()
         {

@@ -46,5 +46,17 @@ namespace Presentacion.Properties {
                 this["password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool estalogueado {
+            get {
+                return ((bool)(this["estalogueado"]));
+            }
+            set {
+                this["estalogueado"] = value;
+            }
+        }
     }
 }

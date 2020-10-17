@@ -6,8 +6,7 @@ namespace Persistencia.Entidades
 {
     public class ProductoEntidad
     {
-        private long id_productos;
-        private long id_muev;
+        private long id_productos;        
         private string codigo;
         private string descripcion;
         private float precio;

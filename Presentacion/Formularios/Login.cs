@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio.Modelo;
+using Presentacion.Helpers;
 
 namespace Presentacion.Formularios
 {
@@ -19,6 +21,12 @@ namespace Presentacion.Formularios
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
+            string nombreUsuario = txtuser.Text;
+            string password = txtpassword.Text;
+            //Usuario usr = new Negocio.Modelo.Usuario();
+            Usuario usr = new Usuario();
+            usr.Ingresar(nombreUsuario, password, Variables.programa);
+            bool ingreso = usr.Ingresar(nombreUsuario, password, Variables.programa);
             if (checkrecordar.Checked == true)
             {
                 Properties.Settings.Default.UserName = txtuser.Text;
