@@ -75,9 +75,11 @@
             // 
             // grsintomas
             // 
+            this.grsintomas.AutoSize = true;
+            this.grsintomas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grsintomas.Location = new System.Drawing.Point(50, 72);
             this.grsintomas.Name = "grsintomas";
-            this.grsintomas.Size = new System.Drawing.Size(1045, 384);
+            this.grsintomas.Size = new System.Drawing.Size(6, 21);
             this.grsintomas.TabIndex = 4;
             this.grsintomas.TabStop = false;
             this.grsintomas.Text = "sintomas";

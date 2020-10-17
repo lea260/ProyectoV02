@@ -20,8 +20,8 @@ namespace Presentacion.Formularios
 
         }
         private int v = 0;
-        private int y = 70;      
-        const int altura = 20;
+        private int y = 20;      
+        const int altura = 25;
         //lista sintomas de la enfermedad
         List<DataSintoma> list;
         //lista de todos los sintomas.
@@ -87,7 +87,7 @@ namespace Presentacion.Formularios
 
         private void ListarSintomas()
         {
-            this.y = 70;
+            this.y = 20;
             foreach (var item in this.list)
             {
 
