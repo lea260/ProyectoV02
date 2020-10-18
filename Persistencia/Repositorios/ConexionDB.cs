@@ -10,7 +10,7 @@ namespace Persistencia.Repositorios
         public static MySqlConnection GetConexion()
         {
 
-            string cadenaConexion = "Database=prueba; Data Source=localhost; Port=3306; User Id=usuario1; Password=usuario1";
+            string cadenaConexion = "Database=test; Data Source=localhost; Port=3306; User Id=usuario1; Password=usuario1";
             MySqlConnection conexion = null;
             try
             {
