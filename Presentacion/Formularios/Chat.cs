@@ -20,6 +20,7 @@ namespace Presentacion.Formularios
         {
             InitializeComponent();
             InitChat();
+            ActualizarListaChat();
         }
         private void InitChat()
         {
@@ -30,11 +31,21 @@ namespace Presentacion.Formularios
             string mensaje= "vacio";
             //llenar listbox.
             lstChat.Items.Add("hasdfsdf");
+            t = new System.Timers.Timer();
+
+            t.AutoReset = true;
+
+            // Start the timer
+            t.Enabled = true;
+
+            t.Interval = 1000;//1s
+            t.Elapsed += On_TimeEvent;
 
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            //t.Stop();
             string text = txtMensaje.Text;
             if (!string.IsNullOrEmpty(text))
             {
@@ -46,19 +57,37 @@ namespace Presentacion.Formularios
 
         private void listChat_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            
         }
 
-        private void Chat_Load(object sender, EventArgs e)
+        /*private void Chat_Load(object sender, EventArgs e)
         {
             t = new System.Timers.Timer();
             t.Interval = 1000;//1s
             t.Elapsed += On_TimeEvent;
+        }*/
+        private void ActualizarListaChat()
+        {
+            List<DataChat> list = null;
+            Mensaje chat = new Mensaje();
+            list = chat.ObtenerMensajes(1);
+            foreach (DataChat item in list)
+            {
+                string text = item.Nombre + ": " + item.Mensaje;
+                lstChat.Items.Add(text);
+                lstChat.SelectedIndex = lstChat.Items.Count - 1;
+            }
         }
+        
+
+
+
 
         private void On_TimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
-            throw new NotImplementedException();
+            string hola= "hola";
+            ActualizarListaChat();
         }
     }
 }
