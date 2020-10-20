@@ -7,7 +7,7 @@ using Persistencia.Repositorios;
 
 namespace Negocio.Modelo
 {
-    public class Chat
+    public class Mensaje
     {
         public List<DataChat> ObtenerMensajes(long id)
         {
@@ -21,7 +21,6 @@ namespace Negocio.Modelo
                 DataChat data = new DataChat(mensaje.Nombre, mensaje.Mensaje);                
                 lista.Add(data);
             }
-
             return lista;
         }
             

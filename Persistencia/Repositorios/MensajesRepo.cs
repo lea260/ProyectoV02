@@ -53,6 +53,7 @@ namespace Persistencia.Repositorios
                 if (conexion != null)
                 {
                     conexion.Close();
+                    conexion.Dispose();
                 }
             }
             return list;            

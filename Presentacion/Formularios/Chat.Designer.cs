@@ -28,26 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listChat = new System.Windows.Forms.ListBox();
-            this.mensaje = new System.Windows.Forms.TextBox();
+            this.lstChat = new System.Windows.Forms.ListBox();
+            this.txtMensaje = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listChat
+            // lstChat
             // 
-            this.listChat.FormattingEnabled = true;
-            this.listChat.ItemHeight = 16;
-            this.listChat.Location = new System.Drawing.Point(24, 12);
-            this.listChat.Name = "listChat";
-            this.listChat.Size = new System.Drawing.Size(182, 212);
-            this.listChat.TabIndex = 0;
+            this.lstChat.FormattingEnabled = true;
+            this.lstChat.ItemHeight = 16;
+            this.lstChat.Location = new System.Drawing.Point(24, 12);
+            this.lstChat.Name = "lstChat";
+            this.lstChat.ScrollAlwaysVisible = true;
+            this.lstChat.Size = new System.Drawing.Size(182, 212);
+            this.lstChat.TabIndex = 0;
+            this.lstChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
             // 
-            // mensaje
+            // txtMensaje
             // 
-            this.mensaje.Location = new System.Drawing.Point(222, 12);
-            this.mensaje.Name = "mensaje";
-            this.mensaje.Size = new System.Drawing.Size(131, 22);
-            this.mensaje.TabIndex = 1;
+            this.txtMensaje.Location = new System.Drawing.Point(222, 12);
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(131, 22);
+            this.txtMensaje.TabIndex = 1;
             // 
             // btnEnviar
             // 
@@ -57,6 +59,7 @@
             this.btnEnviar.TabIndex = 2;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // Chat
             // 
@@ -64,8 +67,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnEnviar);
-            this.Controls.Add(this.mensaje);
-            this.Controls.Add(this.listChat);
+            this.Controls.Add(this.txtMensaje);
+            this.Controls.Add(this.lstChat);
             this.Name = "Chat";
             this.Text = "Chat";
             this.ResumeLayout(false);
@@ -75,8 +78,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listChat;
-        private System.Windows.Forms.TextBox mensaje;
+        private System.Windows.Forms.ListBox lstChat;
+        private System.Windows.Forms.TextBox txtMensaje;
         private System.Windows.Forms.Button btnEnviar;
     }
 }
