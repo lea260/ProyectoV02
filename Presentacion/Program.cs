@@ -21,6 +21,7 @@ namespace Presentacion
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormInicio());
             Application.Run(new Login());
+
             //Application.Run(new Form2());
         }
     }
