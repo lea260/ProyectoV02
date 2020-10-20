@@ -30,7 +30,7 @@ namespace Presentacion.Formularios
             list = chat.ObtenerMensajes(1);
             string mensaje= "vacio";
             //llenar listbox.
-            lstChat.Items.Add("hasdfsdf");
+            lstChat.Items.Add("inicio");
             t = new System.Timers.Timer();
 
             t.AutoReset = true;
