@@ -32,9 +32,7 @@ namespace Presentacion.Formularios
             //llenar listbox.
             lstChat.Items.Add("inicio");
             t = new System.Timers.Timer();
-
             t.AutoReset = true;
-
             // Start the timer
             t.Enabled = true;
 
@@ -45,7 +43,11 @@ namespace Presentacion.Formularios
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            //t.Stop();
+            //paro timer 
+            //llamo al metodo
+            //incio el timer
+            //t.Stop
+            //t.Enabled = true;
             string text = txtMensaje.Text;
             if (!string.IsNullOrEmpty(text))
             {
