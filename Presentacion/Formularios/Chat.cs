@@ -15,6 +15,7 @@ namespace Presentacion.Formularios
 {
     public partial class Chat : Form
     {
+        System.Timers.Timer t;
         public Chat()
         {
             InitializeComponent();
@@ -42,9 +43,23 @@ namespace Presentacion.Formularios
             }           
         }
 
+
         private void listChat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void Chat_Load(object sender, EventArgs e)
+        {
+            t = new System.Timers.Timer();
+            t.Interval = 1000;//1s
+            t.Elapsed += On_TimeEvent;
+        }
+
+        private void On_TimeEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+ 
