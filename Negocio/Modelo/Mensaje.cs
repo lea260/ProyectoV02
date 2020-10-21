@@ -23,7 +23,13 @@ namespace Negocio.Modelo
             }
             return lista;
         }
-            
+
+        public static void Agregar(long idPatologia, long idUsuario, string mensaje)
+        {
+            MensajesRepo chatRep = new MensajesRepo();
+            chatRep.Agregar(idPatologia, idUsuario, mensaje);
+            //throw new NotImplementedException();
+        }
     }
 }
 

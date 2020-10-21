@@ -16,6 +16,9 @@ namespace Presentacion.Formularios
     public partial class Chat : Form
     {
         System.Timers.Timer t;
+        private int cantidadMensajes =0;
+        private long idUsuario;
+        private long idPatologia;
         public Chat()
         {
             InitializeComponent();
@@ -48,11 +51,15 @@ namespace Presentacion.Formularios
             //incio el timer
             //t.Stop
             //t.Enabled = true;
-            string text = txtMensaje.Text;
-            if (!string.IsNullOrEmpty(text))
+            
+            string mensaje = txtMensaje.Text;
+            if (!string.IsNullOrEmpty(mensaje))
             {
-                lstChat.Items.Add(text);
-                lstChat.SelectedIndex = lstChat.Items.Count - 1;
+                Mensaje chat = new Mensaje();
+                //id patologia, idUsuarioE, mensaje                
+                Mensaje.Agregar(idPatologia, idUsuario, mensaje);
+                //lstChat.Items.Add(text);
+                //lstChat.SelectedIndex = lstChat.Items.Count - 1;
             }           
         }
 
@@ -73,13 +80,27 @@ namespace Presentacion.Formularios
         {
             List<DataChat> list = null;
             Mensaje chat = new Mensaje();
-            list = chat.ObtenerMensajes(1);
-            foreach (DataChat item in list)
+            list = chat.ObtenerMensajes(idPatologia);
+            if (list.Count > this.cantidadMensajes)
+            {
+                int total = list.Count;
+                for (int i = this.cantidadMensajes; i < total; i++)
+                {
+                    string text = list[i].Nombre + ": " + list[i].Mensaje;
+                    lstChat.Items.Add(text);
+                    lstChat.SelectedIndex = lstChat.Items.Count - 1;
+                }
+                this.cantidadMensajes = list.Count;
+            }
+            //list.Count = l
+
+
+            /*foreach (DataChat item in list)
             {
                 string text = item.Nombre + ": " + item.Mensaje;
                 lstChat.Items.Add(text);
                 lstChat.SelectedIndex = lstChat.Items.Count - 1;
-            }
+            }*/
         }
         
 

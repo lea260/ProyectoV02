@@ -17,10 +17,11 @@ namespace Persistencia.Repositorios
         {
             
             List<MensajeEntidad> list = new List<MensajeEntidad>();
+            MySqlDataReader reader = null;
             MySqlConnection conexion = null;
             try
             {
-                MySqlDataReader reader = null;
+                
                 conexion = ConexionDB.GetConexion();
                 conexion.Open();                    
                 string sql;
@@ -55,8 +56,19 @@ namespace Persistencia.Repositorios
                     conexion.Close();
                     conexion.Dispose();
                 }
+                if (reader != null)
+                {
+                    reader.Close();
+                    reader.Dispose();
+                }
             }
             return list;            
+        }
+
+        public void Agregar(long idPatologia, long idUsuario, string mensaje)
+        {
+            //hago el insert
+            throw new NotImplementedException();
         }
     }
 }
