@@ -24,10 +24,10 @@ namespace Negocio.Modelo
             return lista;
         }
 
-        public static void Agregar(long idPatologia, long idUsuario, string mensaje)
+        public static void Agregar(long idDiagnostico, long idUsuario, string mensaje)
         {
             MensajesRepo chatRep = new MensajesRepo();
-            chatRep.Agregar(idPatologia, idUsuario, mensaje);
+            chatRep.Agregar(idDiagnostico, idUsuario, mensaje);
             //throw new NotImplementedException();
         }
     }

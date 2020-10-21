@@ -65,10 +65,38 @@ namespace Persistencia.Repositorios
             return list;            
         }
 
-        public void Agregar(long idPatologia, long idUsuario, string mensaje)
+        public void Agregar(long idDiagnostico, long idUsuario, string mensaje)
         {
             //hago el insert
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            MySqlConnection conexion = null;
+            try
+            {
+                conexion = ConexionDB.GetConexion();
+                conexion.Open();
+                string sql = @"insert into chat (id_usuario, id_diag ,mensaje) 
+                                values (?idusuario,?idiag,?mensaje)";
+                MySqlCommand comando = new MySqlCommand(sql, conexion);
+                comando.Parameters.Add("?idusuario", MySqlDbType.Int64).Value = idUsuario;
+                comando.Parameters.Add("?idiag", MySqlDbType.Int64).Value = idDiagnostico;                
+                comando.Parameters.Add("?mensaje", MySqlDbType.String).Value = mensaje;                
+                comando.ExecuteNonQuery();
+                //obtiene el ultimo id ingresado
+                long id = comando.LastInsertedId;
+            }
+            catch (MySqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                Console.WriteLine("hola" + mensajeError);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                    conexion.Dispose();
+                }
+            }
         }
     }
 }

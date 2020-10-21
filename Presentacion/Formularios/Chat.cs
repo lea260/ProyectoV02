@@ -19,8 +19,10 @@ namespace Presentacion.Formularios
         private int cantidadMensajes =0;
         private long idUsuario;
         private long idPatologia;
-        public Chat()
+        public Chat(long idUsuario=1, long idPatologia=1)
         {
+            this.idUsuario = idUsuario;
+            this.idPatologia = idPatologia;
             InitializeComponent();
             InitChat();
             ActualizarListaChat();
@@ -30,7 +32,7 @@ namespace Presentacion.Formularios
             //
             List<DataChat> list = null;
             Mensaje chat = new Mensaje();
-            list = chat.ObtenerMensajes(1);
+            list = chat.ObtenerMensajes(this.idPatologia);
             string mensaje= "vacio";
             //llenar listbox.
             lstChat.Items.Add("inicio");
@@ -39,7 +41,7 @@ namespace Presentacion.Formularios
             // Start the timer
             t.Enabled = true;
 
-            t.Interval = 1000;//1s
+            t.Interval = 5000;//1s
             t.Elapsed += On_TimeEvent;
 
         }
@@ -51,13 +53,15 @@ namespace Presentacion.Formularios
             //incio el timer
             //t.Stop
             //t.Enabled = true;
-            
+            t.Enabled = false;
             string mensaje = txtMensaje.Text;
             if (!string.IsNullOrEmpty(mensaje))
             {
                 Mensaje chat = new Mensaje();
-                //id patologia, idUsuarioE, mensaje                
+                //id patologia, idUsuarioE, mensaje   
+                
                 Mensaje.Agregar(idPatologia, idUsuario, mensaje);
+                ActualizarListaChat();
                 //lstChat.Items.Add(text);
                 //lstChat.SelectedIndex = lstChat.Items.Count - 1;
             }           
@@ -78,6 +82,7 @@ namespace Presentacion.Formularios
         }*/
         private void ActualizarListaChat()
         {
+            
             List<DataChat> list = null;
             Mensaje chat = new Mensaje();
             list = chat.ObtenerMensajes(idPatologia);
@@ -92,6 +97,7 @@ namespace Presentacion.Formularios
                 }
                 this.cantidadMensajes = list.Count;
             }
+            t.Enabled = true;
             //list.Count = l
 
 

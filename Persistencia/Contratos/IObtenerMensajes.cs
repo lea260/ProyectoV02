@@ -8,5 +8,6 @@ namespace Persistencia.Contratos
     interface IObtenerMensajes
     {
         List<MensajeEntidad> GetMensajes(long diag);
+        void Agregar(long idDiagnostico, long idUsuario, string mensaje);
     }
 }
