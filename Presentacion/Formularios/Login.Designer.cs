@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkrecordar = new System.Windows.Forms.CheckBox();
+            this.btnChat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtuser
@@ -88,11 +89,22 @@
             this.checkrecordar.Text = "Recordarme";
             this.checkrecordar.UseVisualStyleBackColor = true;
             // 
+            // btnChat
+            // 
+            this.btnChat.Location = new System.Drawing.Point(482, 27);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(123, 23);
+            this.btnChat.TabIndex = 6;
+            this.btnChat.Text = "Abrir Chat";
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnChat);
             this.Controls.Add(this.checkrecordar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkrecordar;
+        private System.Windows.Forms.Button btnChat;
     }
 }

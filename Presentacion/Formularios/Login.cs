@@ -46,5 +46,13 @@ namespace Presentacion.Formularios
             
 
         }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            Chat chat1 = new Chat(1, 1);
+            Chat chat2 = new Chat(3, 1);
+            chat1.Show();
+            chat2.Show();
+        }
     }
 }
