@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `chat`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `chat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `pwd` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `rol` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `chat` (
+  `idchat` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL,
+  `mensaje` varchar(65) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_diag` int DEFAULT NULL,
+  PRIMARY KEY (`idchat`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `chat`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'usr01','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','gestion'),(3,'usr02','dfdf','gestion');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `chat` WRITE;
+/*!40000 ALTER TABLE `chat` DISABLE KEYS */;
+INSERT INTO `chat` VALUES (1,1,'hola',1),(2,3,'¿como estas?',1),(3,1,'bien',1),(4,1,'vos',1),(5,1,'y vos',1),(6,1,'y',1),(7,1,'asdfasdf',1),(8,1,'hola',1),(9,3,'estas',1);
+/*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
