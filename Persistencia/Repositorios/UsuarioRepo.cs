@@ -57,5 +57,10 @@ namespace Persistencia.Repositorios
             }
             return ingreso;
         }//end Ingresar      
+
+        public void Prueba(string password, string programa)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

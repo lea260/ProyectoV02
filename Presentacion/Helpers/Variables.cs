@@ -8,6 +8,7 @@ namespace Presentacion.Helpers
 {
     public static class Variables
     {
+        public static long idUsuario;        
         public static readonly string programa="gestion";
         //public readonly string programa = "gestion";
     }

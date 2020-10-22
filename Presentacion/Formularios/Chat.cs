@@ -15,7 +15,7 @@ namespace Presentacion.Formularios
 {
     public partial class Chat : Form
     {
-        System.Timers.Timer t;
+        System.Timers.Timer t;        
         private int cantidadMensajes =0;
         private long idUsuario;
         private long idPatologia;
@@ -29,6 +29,7 @@ namespace Presentacion.Formularios
         }
         private void InitChat()
         {
+            
             //
             List<DataChat> list = null;
             Mensaje chat = new Mensaje();
@@ -41,7 +42,7 @@ namespace Presentacion.Formularios
             // Start the timer
             t.Enabled = true;
 
-            t.Interval = 5000;//1s
+            t.Interval = 1000;//1s
             t.Elapsed += On_TimeEvent;
 
         }

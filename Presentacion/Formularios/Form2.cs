@@ -99,7 +99,7 @@ namespace Presentacion.Formularios
                 lbl1.Location = new Point(40, y);
                 lbl1.Text = item.Id.ToString();
                 lbl1.Name = item.Id.ToString();
-                lbl1.Tag = this.v;
+                
                 Label lbl2 = new Label();
                 lbl2.Width = 46;
                 lbl2.Height = 17;
