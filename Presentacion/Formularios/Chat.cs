@@ -34,7 +34,7 @@ namespace Presentacion.Formularios
             List<DataChat> list = null;
             Mensaje chat = new Mensaje();
             list = chat.ObtenerMensajes(this.idPatologia);
-            string mensaje= "vacio";
+            
             //llenar listbox.
             lstChat.Items.Add("inicio");
             t = new System.Timers.Timer();
@@ -116,7 +116,7 @@ namespace Presentacion.Formularios
 
         private void On_TimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
-            string hola= "hola";
+            
             ActualizarListaChat();
         }
     }

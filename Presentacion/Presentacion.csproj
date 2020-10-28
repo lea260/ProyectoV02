@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -50,17 +50,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>Presentacion.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>presentacion.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7EE0E2CB559346E9C4664E6D535B4D46371A343E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2F6E22D685973C36D0A12F076CF03589B42C4328</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Presentacion_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Presentacion_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -71,7 +70,7 @@
   <ItemGroup>
     <Reference Include="Negocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Negocio\bin\Debug\netstandard2.0\Negocio.dll</HintPath>
+      <HintPath>..\Negocio\bin\Release\netstandard2.0\Negocio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -164,8 +163,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Presentacion_2_TemporaryKey.pfx" />
-    <None Include="Presentacion_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Negocio.Objetos.DataProducto.datasource" />
     <None Include="Properties\DataSources\Negocio.Objetos.DataUsuario.datasource" />
     <None Include="Properties\Settings.settings">
