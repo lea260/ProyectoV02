@@ -7,6 +7,10 @@ namespace Persistencia.Repositorios
 {
     public class ConexionDB
     {    
+        public void Eliminar(int a)
+        {
+            int a = 15;
+        }
         public static MySqlConnection GetConexion()
         {
 
