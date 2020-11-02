@@ -156,11 +156,13 @@ namespace Presentacion.Formularios
 
         private void Txt_TextChanged(object sender, EventArgs e, string coef, long id )
         {
-            //            
+            
+
+            //throw new ArgumentOutOfRangeException("age", "All guests must be 21-years-old or older.");       
             //this.list.Find(x => x.Id == id);
             //sender.Text = "d";
-            TextBox txtb = (TextBox)sender;
-            txtb.Text = "1000";
+            //TextBox txtb = (TextBox)sender;
+            //txtb.Text = "1000";
             bool encontrado = false;
             int cantidad = this.list.Count;
             int iter = 0;
@@ -169,15 +171,31 @@ namespace Presentacion.Formularios
             {
                 if (this.list[iter].Id==id)
                 {
+
                     encontrado = true;
-                    this.list[iter].Coef = double.Parse (coef); 
+                    double heightVal = 0;
+                    double.TryParse(coef, out heightVal);
+                    if (heightVal != 0)
+                    {
+                        this.list[iter].Coef = heightVal;                       
+
+                    }
+                    else
+                    {
+                        //this.list[iter].Coef = double.Parse(coef);
+                        TextBox txtb = (TextBox)sender;
+                        txtb.Text = "0";
+
+                    }
+                    
+                    
                 }
                 iter++;
             }            
             //this.list[indice].Coef = coef;
 
         }
-
+        //agregar
         private void button1_Click(object sender, EventArgs e)
         {
             int indice = cmbsintomas.SelectedIndex;
@@ -196,9 +214,14 @@ namespace Presentacion.Formularios
                 DataSintoma sintomaData = this.listasintomas[indice];
                 string sintoma = this.listasintomas[indice].Sintoma;
                 MessageBox.Show("id:" + id + " el sintoma es: " + sintoma);
-                this.list.Add(sintomaData);
-                EliminarSintomas();
-                ListarSintomas();
+                List<DataSintoma> listaAux = this.list.Where(a => a.Id == id).ToList();
+                if (listaAux.Count==0)
+                {
+                    this.list.Add(sintomaData);
+                    EliminarSintomas();
+                    ListarSintomas();
+                }
+                
                 
             }
 
