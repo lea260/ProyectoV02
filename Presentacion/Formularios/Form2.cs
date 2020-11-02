@@ -154,10 +154,13 @@ namespace Presentacion.Formularios
             ListarSintomas();
         }
 
-        private void Txt_TextChanged(object sender, EventArgs e, string coef, long id)
+        private void Txt_TextChanged(object sender, EventArgs e, string coef, long id )
         {
             //            
             //this.list.Find(x => x.Id == id);
+            //sender.Text = "d";
+            TextBox txtb = (TextBox)sender;
+            txtb.Text = "1000";
             bool encontrado = false;
             int cantidad = this.list.Count;
             int iter = 0;
