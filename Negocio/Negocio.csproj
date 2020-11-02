@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <Reference Include="Persistencia">
-      <HintPath>..\Persistencia\bin\Release\netstandard2.0\Persistencia.dll</HintPath>
+      <HintPath>..\Persistencia\bin\Debug\netstandard2.0\Persistencia.dll</HintPath>
     </Reference>
   </ItemGroup>
 

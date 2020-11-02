@@ -15,10 +15,7 @@ namespace Presentacion.Formularios
 {
     public partial class Form2 : Form
     {
-        public void Hola()
-        {
-
-        }
+        
         private int v = 0;
         private int y = 20;      
         const int altura = 25;
@@ -164,6 +161,7 @@ namespace Presentacion.Formularios
             bool encontrado = false;
             int cantidad = this.list.Count;
             int iter = 0;
+            List<DataSintoma> listaAux = this.list.Where(a => a.Id == id).ToList();
             while (!encontrado)
             {
                 if (this.list[iter].Id==id)

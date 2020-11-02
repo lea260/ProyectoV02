@@ -1,15 +1,15 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Persistencia.Contratos;
+using Persistencia.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
-using Persistencia.Entidades;
-using Persistencia.Contratos;
 
 namespace Persistencia.Repositorios
 {
     public class ProductosRepo : IProducto
-    {        
-        public List<ProductoEntidad> ListarProductos(string consulta=null)
+    {
+        public List<ProductoEntidad> ListarProductos(string consulta = null)
         {
             List<ProductoEntidad> list = new List<ProductoEntidad>();
             MySqlConnection conexion = null;
@@ -31,8 +31,8 @@ namespace Persistencia.Repositorios
                 }
 
                 string searchTerm = string.Format("%{0}%", consulta);
-                
-                
+
+
                 //Command.Parameters.Add(new SqlParameter("@name", searchTerm));
 
                 MySqlCommand comando = new MySqlCommand(sql, conexion);
@@ -42,7 +42,7 @@ namespace Persistencia.Repositorios
                 {
                     while (reader.Read())
                     {
-                        
+
                         string id = reader.GetString(0);
                         /*string codigo = (reader[1] != DBNull.Value) ? reader.GetString(1) : ""; ;
                         if (reader[1] != DBNull.Value)
@@ -74,13 +74,14 @@ namespace Persistencia.Repositorios
             catch (MySqlException ex)
             {
                 string mensaje = ex.ToString();
-                Console.WriteLine("hola"+mensaje );
+                Console.WriteLine("hola" + mensaje);
             }
             finally
             {
-                if (conexion != null) {
+                if (conexion != null)
+                {
                     conexion.Close();
-                } 
+                }
             }
             return list;
         }
@@ -100,7 +101,7 @@ namespace Persistencia.Repositorios
                 comando.Parameters.AddWithValue("@fecha", entidad.Fecha);
                 comando.ExecuteNonQuery();
                 //obtiene el ultimo id ingresado
-                long id = comando.LastInsertedId;                
+                long id = comando.LastInsertedId;
             }
             catch (MySqlException ex)
             {
@@ -115,6 +116,7 @@ namespace Persistencia.Repositorios
                 }
             }
         }
+        
         public void EditarProducto(ProductoEntidad entidad)
         {
             MySqlConnection conexion = null;
@@ -123,7 +125,7 @@ namespace Persistencia.Repositorios
                 conexion = ConexionDB.GetConexion();
                 conexion.Open();
 
-                string sql = "UPDATE productos SET codigo=@codigo, descripcion=@descripcion, "+ 
+                string sql = "UPDATE productos SET codigo=@codigo, descripcion=@descripcion, " +
                     "precio= @precio, fecha= @fecha WHERE id_productos= @id";
                 MySqlCommand comando = new MySqlCommand(sql, conexion);
                 comando.Parameters.AddWithValue("@codigo", entidad.Codigo);
@@ -154,7 +156,7 @@ namespace Persistencia.Repositorios
                 conexion = ConexionDB.GetConexion();
                 conexion.Open();
                 string sql = "delete from productos where id_productos=@id";
-                MySqlCommand comando = new MySqlCommand(sql, conexion);                
+                MySqlCommand comando = new MySqlCommand(sql, conexion);
                 comando.Parameters.AddWithValue("@id", idproductos);
                 comando.ExecuteNonQuery();
             }

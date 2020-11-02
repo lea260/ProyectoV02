@@ -5,7 +5,7 @@ using System.Text;
 namespace Negocio.Objetos
 {
     public class DataChat
-    {
+    {   
         private string nombre;
         private string mensaje;
 
